@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/listItemQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/notepad_paper"
+        android:fadingEdge="vertical"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:textColor="#F000" />
+
+    <org.kukish.android.simpleshoppinglist.views.ItemView
+        android:id="@+id/listItemId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/notepad_text" />
+
+</RelativeLayout>

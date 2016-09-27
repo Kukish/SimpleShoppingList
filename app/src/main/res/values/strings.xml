@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SimpleShoppingList</string>
+    <string name="add_new_item">Add new item</string>
+    <string name="item_quantity">1kg</string>
+</resources>
