@@ -3,10 +3,7 @@ package org.kukish.android.simpleshoppinglist.fragments;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListView;
 
 import org.kukish.android.simpleshoppinglist.listeners.OnItemDeletedListener;
