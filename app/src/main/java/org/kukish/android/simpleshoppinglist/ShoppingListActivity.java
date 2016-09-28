@@ -1,5 +1,9 @@
 package org.kukish.android.simpleshoppinglist;
 
+/**
+ * Created by Alejandro Awesome on 9/27/2016.
+ */
+
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.LoaderManager;
@@ -9,7 +13,6 @@ import android.content.CursorLoader;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 
 import org.kukish.android.simpleshoppinglist.adapters.ShoppingItemAdapter;
 import org.kukish.android.simpleshoppinglist.fragments.ShoppingListFragment;

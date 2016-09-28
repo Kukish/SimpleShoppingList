@@ -1,7 +1,7 @@
 package org.kukish.android.simpleshoppinglist;
 
 /**
- * Created by Sq on 9/27/2016.
+ * Created by Alejandro Awesome on 9/27/2016.
  */
 
 public class ShoppingItem {

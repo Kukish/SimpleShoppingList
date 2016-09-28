@@ -13,7 +13,7 @@ import org.kukish.android.simpleshoppinglist.listeners.OnItemDeletedListener;
 import org.kukish.android.simpleshoppinglist.listeners.OnNewItemAddedListener;
 
 /**
- * Created by Sq on 9/26/2016.
+ * Created by Alejandro Awesome on 9/26/2016.
  */
 
 public class ShoppingListFragment extends ListFragment {

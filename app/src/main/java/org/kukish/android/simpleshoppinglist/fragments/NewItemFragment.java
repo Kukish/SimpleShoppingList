@@ -16,7 +16,7 @@ import org.kukish.android.simpleshoppinglist.R;
 import org.kukish.android.simpleshoppinglist.listeners.OnNewItemAddedListener;
 
 /**
- * Created by Sq on 9/26/2016.
+ * Created by Alejandro Awesome on 9/26/2016.
  */
 
 public class NewItemFragment extends Fragment {
@@ -25,7 +25,7 @@ public class NewItemFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view =  inflater.inflate(R.layout.new_item_fragment, container, false);
+        View view = inflater.inflate(R.layout.new_item_fragment, container, false);
 
         final EditText itemNameEditText = (EditText) view.findViewById(R.id.itemName);
         final EditText itemNameQuantity = (EditText) view.findViewById(R.id.itemQuanity);
@@ -80,18 +80,6 @@ public class NewItemFragment extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onAttach(Activity activity) {
-//        super.onAttach(activity);
-//
-//        try {
-//            onNewItemAddedListener = (OnNewItemAddedListener) activity;
-//        } catch (ClassCastException exc) {
-//            throw new ClassCastException(activity.toString()
-//                    + " must implement OnNewItemAddedListener");
-//        }
-//
-//    }
 
     @Override
     public void onAttach(Context context) {

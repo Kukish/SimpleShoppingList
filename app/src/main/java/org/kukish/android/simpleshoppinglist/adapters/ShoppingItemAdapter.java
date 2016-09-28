@@ -15,7 +15,7 @@ import org.kukish.android.simpleshoppinglist.ShoppingItem;
 import java.util.List;
 
 /**
- * Created by Sq on 9/27/2016.
+ * Created by Alejandro Awesome on 9/27/2016.
  */
 
 public class ShoppingItemAdapter extends ArrayAdapter<ShoppingItem> {

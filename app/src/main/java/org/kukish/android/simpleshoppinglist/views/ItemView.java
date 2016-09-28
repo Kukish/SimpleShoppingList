@@ -11,7 +11,7 @@ import android.widget.TextView;
 import org.kukish.android.simpleshoppinglist.R;
 
 /**
- * Created by Sq on 9/26/2016.
+ * Created by Alejandro Awesome on 9/26/2016.
  */
 
 public class ItemView extends TextView {
