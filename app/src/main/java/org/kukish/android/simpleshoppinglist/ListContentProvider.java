@@ -38,8 +38,8 @@ public class ListContentProvider extends ContentProvider {
 
     static {
         uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
-        uriMatcher.addURI("org.kukish.android.shoppingprovider", "shopitems", ALLROWS);
-        uriMatcher.addURI("org.kukish.android.shoppingprovider", "shopitems/#", SINGLE_ROW);
+        uriMatcher.addURI("org.kukish.android.simpleshoppinglist.ListContentProvider", "shopitems", ALLROWS);
+        uriMatcher.addURI("org.kukish.android.simpleshoppinglist.ListContentProvider", "shopitems/#", SINGLE_ROW);
     }
 
     @Override
@@ -151,16 +151,16 @@ public class ListContentProvider extends ContentProvider {
     private static class ShopListSQLHelper extends SQLiteOpenHelper {
         private static final String DATABASE_NAME = "shoplist.db";
         private static final int DATABASE_VERSION = 1;
-        public static final String DATABASE_TABLE = "shopitems";
+        static final String DATABASE_TABLE = "shopitems";
 
-        public static final String DATABASE_CREATE = "create table "
+        static final String DATABASE_CREATE = "create table "
                 + DATABASE_TABLE + " ( " + KEY_ID
-                + " integer primary key autoincrement, " + KEY_NAME
+                + " integer primary key, " + KEY_NAME
                 + " text not null, " + KEY_DESCRIPTION + " text, "
                 + KEY_QUANTITY + " text, " + KEY_CREATION_DATE + " long);";
 
-        public ShopListSQLHelper(Context context, String name,
-                                 SQLiteDatabase.CursorFactory factory, int version) {
+        ShopListSQLHelper(Context context, String name,
+                          SQLiteDatabase.CursorFactory factory, int version) {
             super(context, name, factory, version);
         }
 

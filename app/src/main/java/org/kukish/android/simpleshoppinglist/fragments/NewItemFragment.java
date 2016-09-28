@@ -33,51 +33,37 @@ public class NewItemFragment extends Fragment {
         itemNameEditText.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN)
-                    if ((keyCode == KeyEvent.KEYCODE_DPAD_CENTER) ||
-                            (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                        String newItem = itemNameEditText.getText().toString();
-                        if (newItem.isEmpty()) {
-                            Toast toast = Toast.makeText(getActivity(), "please specify item", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.TOP | Gravity.START, 0, 0);
-                            toast.show();
-                            return false;
-                        }
-                        String quantity = itemNameQuantity.getText().toString();
-                        onNewItemAddedListener.onNewItemAdded(newItem, quantity);
-                        itemNameEditText.setText("");
-                        Toast toast = Toast.makeText(getActivity(), "quantity: " + quantity, Toast.LENGTH_SHORT);
-                        toast.setGravity(Gravity.TOP | Gravity.END, 0, 0);
-                        toast.show();
-                        return true;
-                    }
-                return false;
+                return onKeyCheck(keyCode, event, itemNameEditText, itemNameQuantity);
             }
         });
 
         itemNameQuantity.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN)
-                    if ((keyCode == KeyEvent.KEYCODE_DPAD_CENTER) ||
-                            (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                        String newItem = itemNameEditText.getText().toString();
-                        if (newItem.isEmpty()) {
-                            Toast toast = Toast.makeText(getActivity(), "please specify item", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.TOP | Gravity.START, 0, 0);
-                            toast.show();
-                            return false;
-                        }
-                        String quantity = itemNameQuantity.getText().toString();
-                        onNewItemAddedListener.onNewItemAdded(newItem, quantity);
-                        itemNameEditText.setText("");
-                        return true;
-                    }
-                return false;
+                return onKeyCheck(keyCode, event, itemNameEditText, itemNameQuantity);
             }
         });
 
         return view;
+    }
+
+    private boolean onKeyCheck(int keyCode, KeyEvent event, EditText itemNameEditText, EditText itemNameQuantity) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN)
+            if ((keyCode == KeyEvent.KEYCODE_DPAD_CENTER) ||
+                    (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                String newItem = itemNameEditText.getText().toString();
+                if (newItem.isEmpty()) {
+                    Toast toast = Toast.makeText(getActivity(), "please specify item", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.TOP | Gravity.START, 0, 0);
+                    toast.show();
+                    return false;
+                }
+                String quantity = itemNameQuantity.getText().toString();
+                onNewItemAddedListener.onNewItemAdded(newItem, quantity);
+                itemNameEditText.setText("");
+                return true;
+            }
+        return false;
     }
 
 
