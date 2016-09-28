@@ -20,6 +20,7 @@ import java.util.List;
 
 public class ShoppingItemAdapter extends ArrayAdapter<ShoppingItem> {
     private int resource;
+
     public ShoppingItemAdapter(Context context, int resource, List<ShoppingItem> items) {
         super(context, resource, items);
         this.resource = resource;
