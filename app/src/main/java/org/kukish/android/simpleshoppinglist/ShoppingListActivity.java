@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import org.kukish.android.simpleshoppinglist.adapters.ShoppingItemAdapter;
 import org.kukish.android.simpleshoppinglist.fragments.ShoppingListFragment;
-import org.kukish.android.simpleshoppinglist.listeners.OnItemDeletedListener;
+import org.kukish.android.simpleshoppinglist.listeners.OnItemSelectedListener;
 import org.kukish.android.simpleshoppinglist.listeners.OnNewItemAddedListener;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import static org.kukish.android.simpleshoppinglist.ListContentProvider.KEY_NAME
 import static org.kukish.android.simpleshoppinglist.ListContentProvider.KEY_QUANTITY;
 
 public class ShoppingListActivity extends Activity
-        implements OnNewItemAddedListener, OnItemDeletedListener, LoaderManager.LoaderCallbacks<Cursor> {
+        implements OnNewItemAddedListener, OnItemSelectedListener, LoaderManager.LoaderCallbacks<Cursor> {
 
     private ShoppingItemAdapter adapter;
     private ArrayList<ShoppingItem> shoppingItems;
@@ -74,8 +74,16 @@ public class ShoppingListActivity extends Activity
         String selection = KEY_ID + " = '" + itemSelected.getUid() + "'";
         contentResolver.delete(ListContentProvider.CONTENT_URI, selection, null);
         getLoaderManager().restartLoader(0, null, this);
-        Toast toast = Toast.makeText(this, itemSelected.getName() + " deleted sucessfully", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(this, itemSelected.getName() + " deleted sucessfully",
+                Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+    }
+
+    @Override
+    public void onItemLongClick(int position) {
+        Toast toast = Toast.makeText(this, shoppingItems.get(position).getName() + " long clicked",
+                Toast.LENGTH_SHORT);
         toast.show();
     }
 
