@@ -3,10 +3,12 @@ package org.kukish.android.simpleshoppinglist.fragments;
 import android.app.Activity;
 import android.app.ListFragment;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
-import org.kukish.android.simpleshoppinglist.listeners.OnItemDeletedListener;
+import org.kukish.android.simpleshoppinglist.listeners.OnItemSelectedListener;
 import org.kukish.android.simpleshoppinglist.listeners.OnNewItemAddedListener;
 
 /**
@@ -15,7 +17,19 @@ import org.kukish.android.simpleshoppinglist.listeners.OnNewItemAddedListener;
 
 public class ShoppingListFragment extends ListFragment {
 
-    OnItemDeletedListener onItemDeletedListener;
+    OnItemSelectedListener onItemSelectedListener;
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                onItemSelectedListener.onItemLongClick(position);
+                return true;
+            }
+        });
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -23,12 +37,12 @@ public class ShoppingListFragment extends ListFragment {
 
         if (context instanceof Activity)
             if (context instanceof OnNewItemAddedListener)
-                onItemDeletedListener = (OnItemDeletedListener) context;
+                onItemSelectedListener = (OnItemSelectedListener) context;
     }
 
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        onItemDeletedListener.onItemSelected(position);
+        onItemSelectedListener.onItemSelected(position);
     }
 }
